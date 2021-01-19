@@ -17,8 +17,8 @@ services:
     volumes:
       #Swap the folder path for plugin vs theme development
       - wordpress:/var/www/html
-      - ../:/var/www/html/wp-content/plugins/plugin-dev
-      #- ../:/var/www/html/wp-content/themes/theme-dev
+      # - ../:/var/www/html/wp-content/plugins/plugin-dev
+      - ../theme-dev/:/var/www/html/wp-content/themes/theme-dev
  
   db:
     image: mariadb:10
@@ -31,6 +31,24 @@ services:
       - 3306:3306
     volumes:
       - data:/var/lib/mysql
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - 1080:1080
+      - 1025:1025
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=wp_user
+      - PMA_PASSWORD=wp_pass
+    links:
+      - db
+    ports:
+      - 8112:80
+    volumes:
+      - /sessions
 
 volumes:
   wordpress:

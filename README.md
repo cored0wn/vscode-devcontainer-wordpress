@@ -3,6 +3,8 @@
 This contains the configuration necessary for setting up WordPress development using VSCode Dev Containers.
 A MariaDB and WordPress devlopment container are started, and Wordpress is automatically installed and available at http://localhost:8080.
 
+MailCatcher is available at http://localhost:1080, and phpMyAdmin is at http://localhost:8112
+
 ## Configuration
 
 By default the container is configured for plugin development, but you can switch to theme development by changing the volume for the WordPress service in `docker-compose.yml`
