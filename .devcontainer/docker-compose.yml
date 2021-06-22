@@ -20,7 +20,10 @@ services:
       # - ../:/var/www/html/wp-content/plugins/plugin-dev
       - ../theme-dev/:/var/www/html/wp-content/themes/theme-dev
       - ./:/var/www/html/wp-content/themes/.devcontainer
- 
+      - ./../.git/:/var/www/html/wp-content/themes/.git
+      - ./../.gitignore:/var/www/html/wp-content/themes/.gitignore
+    extra_hosts: 
+      - "localhost:172.18.0.1" #172.18.0.1 is the default docker gateway.
   db:
     image: mariadb:10
     environment:

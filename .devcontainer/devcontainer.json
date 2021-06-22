@@ -7,7 +7,7 @@
 	// Uncomment the appropriate line depending on plugin vs theme development.
 	// This should match the active volume mount in docker-compose.yml
 	// "workspaceFolder": "/var/www/html/wp-content/plugins/plugin-dev",
-	"workspaceFolder": "/var/www/html/wp-content/themes/theme-dev",
+	"workspaceFolder": "/var/www/html/wp-content/themes/",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
@@ -17,12 +17,20 @@
 
 	// Add the IDs of any extensions you want installed.
 	"extensions": [
-		"felixfbecker.php-pack",
-		"wordpresstoolbox.wordpress-toolbox",
-		"johnbillion.vscode-wordpress-hooks"
+		"felixfbecker.php-pack",              //PHP Extension Pack
+		"wordpresstoolbox.wordpress-toolbox", //WordPress Snippets
+		"johnbillion.vscode-wordpress-hooks", //WordPress Hooks Intellisense for VS Code
+		"onecentlin.laravel-blade",           //Laravel Blade Snippets
+		"eamodio.gitlens",                    //GitLens
+		"mhutchie.git-graph",                 //Git Graph
+		"waderyan.gitblame",                  //Git Blame
+		"donjayamanne.githistory",            //Git History
+		"bradlc.vscode-tailwindcss",          //Tailwind CSS IntelliSense
+		"bmewburn.vscode-intelephense-client",//PHP Intelephense
+		"liximomo.sftp",                      //SFTP
 	],
 
 	// Sets up WordPress on container start.
-	"postCreateCommand": "../.devcontainer/wp-setup.sh",
+	"postCreateCommand": "./.devcontainer/wp-setup.sh",
 	"remoteUser": "vscode"
 }

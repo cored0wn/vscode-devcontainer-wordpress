@@ -53,6 +53,13 @@ RUN { \
 	echo 'opcache.fast_shutdown=1'; \
 } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
+#Extend upload file size limit PHP settings
+RUN { \
+	# echo 'memory_limit = 10M'; \
+	echo 'post_max_size = 10M'; \
+	echo 'upload_max_filesize = 10M'; \
+} > /usr/local/etc/php/conf.d/upload_max_filesize_ext.ini
+
 #install WP-CLI
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x wp-cli.phar \
