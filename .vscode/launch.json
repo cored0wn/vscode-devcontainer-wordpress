@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug (Theme)",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www/html/wp-content/themes/theme-dev": "${workspaceRoot}"
+            }
+        },
+        {
+            "name": "Listen for Xdebug (Plugin)",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www/html/wp-content/plugins/plugin-dev": "${workspaceRoot}"
+            }
+        }
+    ]
+}
