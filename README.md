@@ -27,5 +27,4 @@ Anything placed in the `plugins` folder (single files or folders) will be copied
 
 ## TODO
 
-- provide a preconfigured launch.json for PHP debugging
 - theme auto-install
