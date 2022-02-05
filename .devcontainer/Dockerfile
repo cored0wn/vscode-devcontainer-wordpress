@@ -13,7 +13,7 @@ RUN set -eux; \
 	rm -rf /var/lib/apt/lists/*
 
 # install Node.js
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - ; \
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - ; \
 	apt-get install -y nodejs; \
 	rm -rf /var/lib/apt/lists/*;
 
@@ -37,12 +37,12 @@ RUN set -ex; \
 		zip \
 	; \
 	pecl install imagick-3.4.4; \
-  	pecl install xdebug-2.8.1; \
+  	pecl install xdebug; \
 	docker-php-ext-enable imagick xdebug;\
 	rm -rf /var/lib/apt/lists/*
 
 #XDebug settings
-RUN echo "[XDebug]\nxdebug.remote_enable = 1\nxdebug.remote_autostart = 1" > $PHP_INI_DIR/conf.d/xdebug.ini
+RUN echo "[XDebug]\nxdebug.mode=debug\nxdebug.client_host=host.docker.internal\nxdebug.log=/var/log/php/xdebug.log" > $PHP_INI_DIR/conf.d/xdebug.ini
 
 #WP recommended PHP settings
 RUN { \
